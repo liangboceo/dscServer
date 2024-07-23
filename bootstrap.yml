@@ -1,0 +1,11 @@
+yuanboot:
+  cloud:
+    discovery:
+      type: "nacos"
+      metadata:
+        url: nacos-fat.spicrhdk.com
+        port: 8848
+        namespace: "devTest"
+        group_name: "web"
+        configserver:
+          dataId: "dsc-server"      # nacos的 DataId
