@@ -6,6 +6,6 @@ yuanboot:
         url: nacos-fat.spicrhdk.com
         port: 8848
         namespace: "devTest"
-        group_name: "web"
+        group: "web"
         configserver:
           dataId: "dsc-server"      # nacos的 DataId
