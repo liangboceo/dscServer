@@ -1,10 +1,13 @@
-#!/usr/bin/env bash
-version=${1-"1.0.0-SNAPSHOT"}
+#!/bin/sh
 out_file="dscServer"
-
+[ $# -lt 3 ] && {
+	echo "Usage: $0 1.0.0-SNAPSHOT linux amd64"
+	exit 1
+}
 build() {
-  local os="$1"
-  local arch="$2"
+  local version="$1"
+  local os="$2"
+  local arch="$3"
   local dir="build/dscServer-$os-$arch"
   out_file="${out_file}-${version}"
   go env -w GOPROXY=https://goproxy.cn,direct
@@ -25,4 +28,4 @@ main() {
   build
 }
 
-main
+main $1 $2 $3
