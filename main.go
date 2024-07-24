@@ -23,8 +23,10 @@ func CreateMVCBuilder() *abstractions.HostBuilder {
 		Configure(func(app *web.ApplicationBuilder) {
 			app.SetJsonSerializer(extension.CamelJson())
 			app.UseMvc(func(builder *mvc.ControllerBuilder) {
-				builder.AddViewsByConfig()                          //视图
-				builder.AddController(controller.NewDemoController) // 注册mvc controller
+				builder.AddViewsByConfig()                           //视图
+				builder.AddController(controller.NewIndexController) // 注册mvc controller
+				builder.AddController(controller.NewCacheController)
+				builder.AddController(controller.NewDataInterFaceController)
 			})
 		}).
 		ConfigureServices(func(serviceCollection *dependencyinjection.ServiceCollection) {
