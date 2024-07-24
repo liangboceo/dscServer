@@ -8,4 +8,7 @@ yuanboot:
         namespace: "devTest"
         group: "web"
         configserver:
-          dataId: "dsc-server"      # nacos的 DataId
+          dataId: "dsc-server.yaml"      # nacos的 DataId
+
+
+
