@@ -5,6 +5,7 @@
 .vscode
 
 *.log
+*.tar.gz
 go.sum
 __debug_bin
 **/vendor/**
