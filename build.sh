@@ -25,7 +25,7 @@ main() {
   echo "mod download"
   go get -t .
   go mod download
-  build
+  build $1 $2 $3
 }
 
 main $1 $2 $3
