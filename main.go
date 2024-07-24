@@ -2,6 +2,7 @@ package main
 
 import (
 	"dscserver/controller"
+	"dscserver/service"
 	"github.com/liangboceo/dependencyinjection"
 	"github.com/liangboceo/yuanboot/abstractions"
 	nacosconfig "github.com/liangboceo/yuanboot/pkg/configuration/nacos"
@@ -42,6 +43,7 @@ func CreateMVCBuilder() *abstractions.HostBuilder {
 		ConfigureServices(func(serviceCollection *dependencyinjection.ServiceCollection) {
 			// ioc
 			nacos.UseServiceDiscovery(serviceCollection)
+			serviceCollection.AddSingleton(service.NewCacheService)
 
 		})
 }
@@ -73,7 +75,9 @@ func registerEndpointRouterConfig(rb router.IRouterBuilder) {
 		func(openapi *swagger.OpenApi) {
 			openapi.AddSecurityBearerAuth()
 		})
-
+	rb.GET("/", func(ctx *context.HttpContext) {
+		panic("home")
+	})
 	rb.GET("/error", func(ctx *context.HttpContext) {
 		panic("http get error")
 	})
