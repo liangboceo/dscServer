@@ -46,6 +46,7 @@ func (controller CacheController) GetFrontCache(req *CacheReq) actionresult.IAct
 	}
 }
 
+// 设置缓存前台服务
 func (controller CacheController) SetFrontCache(req *CacheSetReq) actionresult.IActionResult {
 	key := fmt.Sprintf("%s:%s", req.ServerName, req.KeyName)
 	value := controller.cache.SetCache(key, req.Value, req.Expire)
