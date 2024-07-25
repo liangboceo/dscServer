@@ -6,8 +6,8 @@ import (
 )
 
 type DataInterFaceController struct {
-	mvc.ApiController
-	log *middlewares.Logger
+	mvc.ApiController `doc:"数据接口"`
+	log               *middlewares.Logger
 }
 
 func NewDataInterFaceController() *DataInterFaceController {
