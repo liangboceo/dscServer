@@ -18,7 +18,7 @@ func NewCacheController(cacheService *service.CacheService) *CacheController {
 	return &CacheController{cache: cacheService}
 }
 
-// 缓存请求体
+// CacheReq 缓存请求体
 type CacheReq struct {
 	mvc.RequestBody
 	ServerName string `param:"serverName" doc:"服务名"`
@@ -26,7 +26,7 @@ type CacheReq struct {
 	Url        string `param:"url" doc:"记录请求的url"`
 }
 
-// 缓存设置请求体
+// CacheSetReq 缓存设置请求体
 type CacheSetReq struct {
 	mvc.RequestBody
 	ServerName string `json:"serverName" doc:"服务名"`
@@ -46,7 +46,7 @@ func (controller CacheController) GetFrontCache(req *CacheReq) actionresult.IAct
 	}
 }
 
-// 设置缓存前台服务
+// SetFrontCache 设置缓存前台服务
 func (controller CacheController) SetFrontCache(req *CacheSetReq) actionresult.IActionResult {
 	key := fmt.Sprintf("%s:%s", req.ServerName, req.KeyName)
 	value := controller.cache.SetCache(key, req.Value, req.Expire)
