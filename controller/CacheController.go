@@ -1,7 +1,9 @@
 package controller
 
 import (
+	"dscserver/dto"
 	"dscserver/service"
+	"encoding/json"
 	"fmt"
 	"github.com/liangboceo/yuanboot/web/actionresult"
 	"github.com/liangboceo/yuanboot/web/mvc"
@@ -26,8 +28,10 @@ type CacheReq struct {
 // GetFrontCache 获取前台服务缓存
 func (controller CacheController) GetFrontCache(req *CacheReq) actionresult.IActionResult {
 	key := fmt.Sprintf("%s:%s", req.ServerName, req.KeyName)
+	value := controller.cache.GetCache(key)
+	res, _ := json.Marshal(dto.Success(value))
 	return actionresult.Data{
 		ContentType: "application/json; charset=utf-8",
-		Data:        []byte(controller.cache.GetCache(key)),
+		Data:        res,
 	}
 }
