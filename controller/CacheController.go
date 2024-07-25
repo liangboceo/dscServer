@@ -54,7 +54,7 @@ func (controller CacheController) GetFrontCache(req *CacheReq) actionresult.IAct
 	}
 }
 
-// PostFrontCache  设置缓存前台服务
+// SetFrontCache  设置缓存前台服务
 func (controller CacheController) SetFrontCache(req *CacheSetReq) actionresult.IActionResult {
 	var res []byte
 	if req.ServerName == "" || req.KeyName == "" {
