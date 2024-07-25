@@ -19,7 +19,7 @@ func Success(data interface{}) Result {
 	result.Data = data
 	return result
 }
-func successMessage(data interface{}, message string) Result {
+func SuccessMessage(data interface{}, message string) Result {
 	result := Result{}
 	result.Status = true
 	result.Code = SUCCESS
@@ -28,7 +28,7 @@ func successMessage(data interface{}, message string) Result {
 	return result
 }
 
-func failure(data interface{}) Result {
+func Failure(data interface{}) Result {
 	result := Result{}
 	result.Status = false
 	result.Code = SERVER_ERROR
@@ -37,7 +37,7 @@ func failure(data interface{}) Result {
 	return result
 }
 
-func failureMessage(data interface{}, message string) Result {
+func FailureMessage(data interface{}, message string) Result {
 	result := Result{}
 	result.Status = false
 	result.Code = SERVER_ERROR
