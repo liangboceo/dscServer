@@ -5,6 +5,7 @@ import (
 	"dscserver/service"
 	"encoding/json"
 	"fmt"
+	"github.com/liangboceo/yuanboot/abstractions/xlog"
 	"github.com/liangboceo/yuanboot/web/actionresult"
 	"github.com/liangboceo/yuanboot/web/mvc"
 )
@@ -57,6 +58,7 @@ func (controller CacheController) GetFrontCache(req *CacheReq) actionresult.IAct
 // SetFrontCache  设置缓存前台服务
 func (controller CacheController) SetFrontCache(req *CacheSetReq) actionresult.IActionResult {
 	var res []byte
+	xlog.GetXLogger("CacheController").Info("test")
 	if req.ServerName == "" || req.KeyName == "" {
 		res, _ = json.Marshal(dto.FailureMessage("", "服务名/缓存md5Key不能为空"))
 		return actionresult.Data{
@@ -75,5 +77,4 @@ func (controller CacheController) SetFrontCache(req *CacheSetReq) actionresult.I
 		ContentType: "application/json; charset=utf-8",
 		Data:        res,
 	}
-
 }

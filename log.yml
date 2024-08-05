@@ -1,0 +1,7 @@
+yuanboot:
+  log:
+    log_path: /mnt/data/log/
+    log_level: info
+    log_max_disk_usage: 102400000
+    log_max_file_num: 50
+    app_name: dsc_server
