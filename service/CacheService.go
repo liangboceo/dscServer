@@ -3,15 +3,17 @@ package service
 import (
 	"github.com/liangboceo/yuanboot/pkg/cache/redis"
 	redisdb "github.com/liangboceo/yuanboot/pkg/datasources/redis"
+	"gorm.io/gorm"
 	"time"
 )
 
 type CacheService struct {
 	redisClient *redisdb.RedisDataSource
+	db          *gorm.DB
 }
 
-func NewCacheService(redis *redisdb.RedisDataSource) *CacheService {
-	return &CacheService{redisClient: redis}
+func NewCacheService(redis *redisdb.RedisDataSource, db *gorm.DB) *CacheService {
+	return &CacheService{redisClient: redis, db: db}
 }
 
 func (cacheService *CacheService) GetCache(name string) string {

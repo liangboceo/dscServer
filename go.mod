@@ -5,6 +5,7 @@ go 1.21
 require (
 	github.com/liangboceo/dependencyinjection v1.0.0
 	github.com/liangboceo/yuanboot v1.9.2
+	gorm.io/gorm v1.21.11
 )
 
 require (
@@ -28,6 +29,8 @@ require (
 	github.com/google/uuid v1.5.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/copier v0.4.0 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.2 // indirect
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.17.3 // indirect
@@ -81,3 +84,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	skywalking.apache.org/repo/goapi v0.0.0-20220401015832-2c9eee9481eb // indirect
 )
+
+replace github.com/liangboceo/yuanboot => D:/develop/project/yuanboot
